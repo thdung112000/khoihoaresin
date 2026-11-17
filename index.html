@@ -3,29 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f9f7f4">
+  <meta name="theme-color" content="#f7f8fa">
   <meta name="description" content="Ines Pure Art lưu giữ hoa cưới, hoa tốt nghiệp và những bó hoa kỷ niệm trong khối resin thủ công tại TP.HCM.">
   <meta property="og:title" content="Khối hoa resin | Ines Pure Art">
   <meta property="og:description" content="Giữ lại bó hoa của một ngày đáng nhớ bằng một tác phẩm resin làm riêng cho bạn.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="vi_VN">
-  <meta property="og:image" content="https://khoi-hoa-resin.thdung112000.chatgpt.site/assets/den-hoa-hero.webp">
+  <meta property="og:image" content="https://www.inespureart.com/assets/hero-xa-cu.webp">
   <title>Khối hoa resin | Ines Pure Art</title>
-  <link rel="icon" href="./assets/monogram.png" type="image/png">
+  <link rel="icon" href="./assets/monogram.png?v=2" type="image/png">
   <link rel="preload" href="./assets/tan-twinkle.otf" as="font" type="font/otf" crossorigin>
-  <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="./notebook.css">
+  <link rel="stylesheet" href="./styles.css?v=20">
+  <link rel="stylesheet" href="./notebook.css?v=3">
 </head>
-<body>
+<body id="dau-trang">
+  <div class="scroll-progress" aria-hidden="true"></div>
   <a class="skip-link" href="#noi-dung">Đến nội dung chính</a>
-  <header class="site-header" id="dau-trang">
+  <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="./index.html" aria-label="Ines Pure Art, trang chủ">
-        <img src="./assets/monogram.png" width="38" height="42" alt="">
+        <img src="./assets/monogram.png?v=2" width="156" height="180" alt="">
         <span>Ines Pure Art</span>
       </a>
       <nav class="main-nav" aria-label="Điều hướng chính">
         <a href="#tac-pham">Tác phẩm</a>
+        <a href="#chon-hoa">Chưa có hoa</a>
         <a href="#quy-trinh">Quy trình</a>
         <a href="#chinh-sach">Chính sách</a>
         <a href="./bang-gia.html">Bảng giá</a>
@@ -36,24 +38,30 @@
 
   <main id="noi-dung">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="wrap hero-inner">
-        <div class="hero-copy">
-          <p class="eyebrow with-line">Khối hoa resin thủ công</p>
-          <h1 id="hero-title">Giữ lại hoa,<br><em>giữ ký ức.</em></h1>
-          <p class="hero-description">Bó hoa cưới, hoa tốt nghiệp hay món quà từ người thương. Ines ướp khô và đúc chính bó hoa ấy thành một khối resin trong suốt, để kỷ niệm còn ở lại thật lâu.</p>
-          <div class="actions">
-            <a class="button button-primary" href="#lien-he">Tư vấn giữ hoa <span aria-hidden="true">↗</span></a>
-            <a class="text-link" href="#tac-pham">Khám phá tác phẩm <span aria-hidden="true">↓</span></a>
+      <div class="hero-stage" data-pearl="foreground">
+        <div class="hero-brand">
+          <p class="eyebrow">Blooms in resin</p>
+          <h1 id="hero-title">Ines Pure Art</h1>
+          <p class="hero-tagline">Tạo tác resin thuần khiết</p>
+        </div>
+        <div class="hero-art">
+          <picture>
+            <source media="(max-width: 600px)" srcset="./assets/hero-xa-cu-mobile-640.webp?v=2 640w, ./assets/hero-xa-cu-mobile.webp?v=2 940w" sizes="100vw" width="940" height="710">
+            <img src="./assets/hero-xa-cu.webp?v=2" srcset="./assets/hero-xa-cu-1280.webp?v=2 1280w, ./assets/hero-xa-cu.webp?v=2 2200w" sizes="min(100vw, 1760px, max(800px, (100svh - 168px) * 1.7778))" width="2200" height="1238" alt="Khối hoa resin dáng vòm giữa những cánh hoa ánh xà cừ" fetchpriority="high">
+          </picture>
+          <div class="hero-interaction" aria-hidden="true">
+            <span class="hero-breeze hero-breeze--left"></span>
+            <span class="hero-breeze hero-breeze--right"></span>
+            <span class="hero-reflection"></span>
           </div>
         </div>
-        <figure class="hero-visual">
-          <div class="hero-frame">
-            <img src="./assets/den-hoa-hero.webp" srcset="./assets/den-hoa-hero-small.webp 578w, ./assets/den-hoa-hero.webp 1118w" sizes="(max-width: 720px) 90vw, 44vw" width="1118" height="1470" alt="Đèn hoa resin dáng vòm với hoa hồng phấn trên đế gỗ phát sáng" fetchpriority="high">
-          </div>
-          <span class="glint glint-hero" aria-hidden="true"></span>
-          <span class="glint glint-hero-small" aria-hidden="true"></span>
-          <figcaption>Đèn hoa dáng vòm <span aria-hidden="true"></span> Khắc tên trên đế gỗ</figcaption>
-        </figure>
+      </div>
+      <div class="wrap hero-dock">
+        <p class="hero-description">Lưu giữ hoa cưới, hoa tốt nghiệp và những bó hoa kỷ niệm trong khối resin thủ công.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#lien-he">Tư vấn giữ hoa <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline" href="#tac-pham">Xem tác phẩm <span aria-hidden="true">↓</span></a>
+        </div>
       </div>
     </section>
 
@@ -65,7 +73,7 @@
       </div>
     </div>
 
-    <section class="section wrap collection" id="tac-pham" aria-labelledby="collection-title">
+    <section class="section wrap collection" data-pearl id="tac-pham" aria-labelledby="collection-title">
       <div class="section-heading collection-heading" data-reveal>
         <div>
           <p class="eyebrow with-line">Bộ sưu tập</p>
@@ -77,78 +85,148 @@
         </div>
       </div>
 
-      <div class="product-grid">
-        <article class="product-card" data-reveal>
-          <div class="product-feature-media">
-            <img class="product-image" src="./assets/den-hoa.webp" width="898" height="950" alt="Khối resin dáng vòm giữ hoa cưới màu trắng và vàng" loading="lazy">
-          </div>
-          <div class="product-copy">
-            <h3>Đèn hoa</h3>
-            <p>Ánh đèn dịu tỏa qua từng cánh hoa.</p>
-          </div>
-        </article>
-        <article class="product-card" data-reveal>
+      <section class="lamp-collection" aria-labelledby="lamps-title">
+        <div class="collection-subheading" data-reveal>
+          <h3 id="lamps-title">Đèn hoa</h3>
+          <p>Ánh đèn dịu tỏa qua từng cánh hoa. Chọn dáng đèn phù hợp với bó hoa của bạn.</p>
+        </div>
+        <div class="product-grid lamp-grid">
+          <article class="product-card" data-reveal="depth">
+            <div class="lamp-placeholder" aria-hidden="true"><span class="lamp-shape lamp-shape--square"></span></div>
+            <div class="product-copy"><h4>Dáng vuông</h4></div>
+          </article>
+          <article class="product-card" data-reveal="depth">
+            <img class="product-image" src="./assets/den-hoa.webp" width="898" height="950" alt="Đèn dáng vòm giữ hoa cưới màu trắng và vàng" loading="lazy">
+            <div class="product-copy"><h4>Dáng vòm</h4></div>
+          </article>
+          <article class="product-card" data-reveal="depth">
+            <div class="lamp-placeholder" aria-hidden="true"><span class="lamp-shape lamp-shape--hex"></span></div>
+            <div class="product-copy"><h4>Dáng lục giác</h4></div>
+          </article>
+          <article class="product-card" data-reveal="depth">
+            <div class="lamp-placeholder" aria-hidden="true"><span class="lamp-shape lamp-shape--rectangle"></span></div>
+            <div class="product-copy"><h4>Dáng chữ nhật</h4></div>
+          </article>
+        </div>
+      </section>
+
+      <div class="product-grid collection-row">
+        <article class="product-card" data-reveal="depth">
           <img class="product-image image-mirror" src="./assets/guong-hoa.webp" width="678" height="900" alt="Gương uốn lượn viền hoa tông cam" loading="lazy">
           <div class="product-copy">
             <h3>Gương hoa</h3>
             <p>Những cánh hoa viền quanh dáng gương bạn chọn.</p>
           </div>
         </article>
-        <article class="product-card" data-reveal>
-          <img class="product-image image-table" src="./assets/ban-hoa.webp" width="900" height="705" alt="Bàn tròn mặt resin với hoa nhiều màu" loading="lazy">
-          <div class="product-copy">
-            <h3>Bàn hoa</h3>
-            <p>Mặt bàn trong suốt để ngắm trọn bó hoa.</p>
-          </div>
-        </article>
-        <article class="product-card" data-reveal>
+        <article class="product-card" data-reveal="depth">
           <img class="product-image image-clock" src="./assets/dong-ho-hoa.webp" width="821" height="900" alt="Đồng hồ resin tròn với hoa xanh và vàng" loading="lazy">
           <div class="product-copy">
             <h3>Đồng hồ hoa</h3>
             <p>Chiếc đồng hồ làm từ bó hoa của ngày ấy.</p>
           </div>
         </article>
+        <article class="product-card" data-reveal="depth">
+          <img class="product-image image-table" src="./assets/ban-hoa.webp" width="900" height="705" alt="Bàn tròn mặt resin với hoa nhiều màu" loading="lazy">
+          <div class="product-copy">
+            <h3>Bàn hoa</h3>
+            <p>Mặt bàn trong suốt để ngắm trọn bó hoa.</p>
+          </div>
+        </article>
       </div>
 
-      <div class="small-collection" data-reveal>
-        <div>
-          <h3>Những món nhỏ để mang theo</h3>
+      <section class="small-collection collection-row" aria-labelledby="small-products-title">
+        <div class="collection-subheading" data-reveal>
+          <h3 id="small-products-title">Những món nhỏ để mang theo</h3>
           <p>Giữ vài cánh từ bó hoa trong món quà có thể dùng mỗi ngày.</p>
         </div>
-        <div class="small-products">
-          <figure><img src="./assets/moc-khoa.webp" width="75" height="75" alt="Móc khóa resin hoa trắng" loading="lazy"><figcaption>Móc khóa</figcaption></figure>
-          <figure><img src="./assets/de-ly.webp" width="75" height="75" alt="Đế ly resin lục giác màu xanh" loading="lazy"><figcaption>Đế ly</figcaption></figure>
-          <figure><img src="./assets/kep-sach.webp" width="75" height="75" alt="Kẹp sách resin với hoa xanh" loading="lazy"><figcaption>Kẹp sách</figcaption></figure>
+        <div class="product-grid">
+          <article class="product-card" data-reveal="depth">
+            <img class="product-image" src="./assets/moc-khoa.webp" width="680" height="566" alt="Móc khóa resin hoa trắng" loading="lazy">
+            <div class="product-copy"><h4>Móc khóa</h4></div>
+          </article>
+          <article class="product-card" data-reveal="depth">
+            <img class="product-image" src="./assets/de-ly.webp" width="680" height="568" alt="Đế ly resin lục giác màu xanh" loading="lazy">
+            <div class="product-copy"><h4>Đế ly</h4></div>
+          </article>
+          <article class="product-card" data-reveal="depth">
+            <img class="product-image" src="./assets/kep-sach.webp" width="680" height="601" alt="Kẹp sách resin với hoa xanh" loading="lazy">
+            <div class="product-copy"><h4>Kẹp sách</h4></div>
+          </article>
         </div>
-      </div>
+      </section>
+      <section class="included-perks collection-row" id="dac-quyen-tron-goi" aria-labelledby="personal-included">
+        <header class="collection-subheading" data-reveal>
+          <h3 id="personal-included">Đặc quyền trọn gói</h3>
+          <p>Các chi tiết có thể chọn tùy mẫu sản phẩm.</p>
+        </header>
+        <ul class="personal-options">
+          <li data-reveal="depth">
+            <figure>
+              <div class="personal-media"><img class="personal-image--light" src="./assets/khac-ten.webp" width="952" height="1100" alt="Đèn LED sáng dọc đế gỗ" loading="lazy"></div>
+              <figcaption>Đế gỗ có đèn LED</figcaption>
+            </figure>
+          </li>
+          <li data-reveal="depth">
+            <figure>
+              <div class="personal-media"><img class="personal-image--engraving" src="./assets/khac-ten.webp" width="952" height="1100" alt="Lời nhắn và ngày kỷ niệm khắc trên đế gỗ" loading="lazy"></div>
+              <figcaption>Khắc laser trên đế gỗ</figcaption>
+            </figure>
+          </li>
+          <li data-reveal="depth">
+            <figure>
+              <div class="personal-media"><img class="personal-image--lettering" src="./assets/den-hoa.webp" width="898" height="950" alt="Dòng chữ trắng in trên mặt khối hoa" loading="lazy"></div>
+              <figcaption>In chữ lên khối hoa</figcaption>
+            </figure>
+          </li>
+          <li data-reveal="depth">
+            <figure>
+              <div class="personal-media"><img class="personal-image--photo" src="./assets/ca-nhan-hoa.webp" width="847" height="940" alt="Ảnh cưới trong khối hoa lục giác" loading="lazy"></div>
+              <figcaption>Nhúng ảnh vào khối hoa</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
     </section>
 
-    <section class="make-it-yours" aria-labelledby="personal-title">
-      <div class="wrap personal-inner">
-        <div class="personal-copy" data-reveal>
-          <p class="eyebrow with-line">Cá nhân hóa</p>
-          <h2 id="personal-title">Dành riêng cho câu chuyện của bạn.</h2>
+    <section class="make-it-yours" data-pearl id="ca-nhan-hoa" aria-labelledby="personal-title">
+      <div class="wrap personal-banner">
+        <header class="personal-heading">
+          <h2 id="personal-title">Nâng tầm tác phẩm</h2>
+          <p class="personal-focus">Cá nhân hóa</p>
           <p>Ines sắp từng cánh hoa từ bó hoa bạn gửi. Bạn có thể chọn màu nền yêu thích và góp ý cho đến khi ưng ý với mẫu.</p>
-          <dl class="feature-list">
-            <div>
-              <dt>Trong gói sản phẩm chính</dt>
-              <dd>Đế gỗ có đèn LED, khắc laser trên đế, in chữ hoặc nhúng ảnh vào khối hoa tùy mẫu.</dd>
-            </div>
-            <div>
-              <dt>Tùy chọn nâng cấp</dt>
-              <dd>Điều chỉnh màu hoa, hoàn thiện cạnh kim cương, thiết kế mẫu chữ riêng hoặc bổ sung hoa.</dd>
-            </div>
-          </dl>
-        </div>
-        <div class="personal-pictures">
-          <img class="personal-main" src="./assets/khac-ten.webp" width="952" height="1100" alt="Cận cảnh đế gỗ có khắc lời nhắn và ngày kỷ niệm" loading="lazy" data-reveal="left">
-          <img class="personal-secondary" src="./assets/ca-nhan-hoa.webp" width="847" height="940" alt="Khối resin lục giác kết hợp hoa và ảnh kỷ niệm" loading="lazy" data-reveal="right">
-          <span class="glint personal-glint" aria-hidden="true"></span>
-        </div>
+          <p>Ines tư vấn các tùy chọn nâng cấp dựa trên bó hoa và mẫu bạn chọn.</p>
+          <a class="button button-outline" href="#lien-he">Tư vấn cá nhân hóa <span aria-hidden="true">↗</span></a>
+        </header>
+        <ul class="personal-options" role="list">
+          <li>
+            <figure>
+              <div class="personal-media"><img src="./assets/so-tay-mau-hoa.webp" width="820" height="358" alt="Hoa calla và sản phẩm sau khi điều chỉnh màu" loading="lazy"></div>
+              <figcaption>Điều chỉnh màu hoa</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <div class="personal-media"><img class="personal-image--edge" src="./assets/ca-nhan-hoa.webp" width="847" height="940" alt="Cận cảnh các cạnh của khối resin lục giác" loading="lazy"></div>
+              <figcaption>Hoàn thiện cạnh kim cương</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <div class="personal-media"><img class="personal-image--design" src="./assets/den-hoa.webp" width="898" height="950" alt="Mẫu chữ trang trí trên khối hoa" loading="lazy"></div>
+              <figcaption>Thiết kế mẫu chữ in và khắc laser</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <div class="personal-media"><img src="./assets/mau-sap-hoa.webp" width="820" height="644" alt="Các loại hoa được sắp trong một mẫu phối" loading="lazy"></div>
+              <figcaption>Bổ sung hoa</figcaption>
+            </figure>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <section class="section wrap process" id="quy-trinh" aria-labelledby="process-title">
+    <section class="section wrap process" data-pearl id="quy-trinh" aria-labelledby="process-title">
       <div class="process-intro" data-reveal>
         <p class="eyebrow with-line">Quy trình</p>
         <h2 id="process-title">Từ bó hoa đến tác phẩm của bạn.</h2>
@@ -188,8 +266,8 @@
       </ol>
     </section>
 
-    <section class="offers" aria-labelledby="offers-title">
-      <div class="wrap offers-inner" data-reveal>
+    <section class="offers" data-pearl aria-labelledby="offers-title">
+      <div class="wrap offers-inner" data-reveal="sheen">
         <div>
           <p class="eyebrow with-line">Ưu đãi đặt làm</p>
           <h2 id="offers-title">Quà từ Ines</h2>
@@ -202,57 +280,59 @@
       </div>
     </section>
 
-    <section class="section wrap flower-picker" id="chon-hoa" aria-labelledby="flower-title">
-      <div class="flower-picker-copy" data-reveal>
-        <p class="eyebrow with-line">Dành cho bạn chưa có hoa</p>
-        <h2 id="flower-title">Chọn hoa theo tông màu.</h2>
-        <p class="flower-picker-description">Chọn một hoặc nhiều tông màu bạn thích. Ines sẽ gợi ý hoa để phối cho khối resin của bạn.</p>
-        <fieldset class="flower-controls" hidden>
-          <legend>Tông màu bạn thích</legend>
-          <div class="flower-options"></div>
-        </fieldset>
-        <div class="flower-picker-actions">
-          <a class="text-link flower-inquiry" href="#lien-he"><span class="flower-inquiry-label">Hỏi Ines về hoa</span> <span aria-hidden="true">↗</span></a>
-          <button class="flower-clear" type="button" disabled>Bỏ chọn tất cả</button>
-        </div>
-      </div>
-
-      <div class="flower-panel" data-reveal>
-        <div class="flower-panel-heading">
-          <h3>Gợi ý phối hoa</h3>
-          <p class="flower-status" role="status"></p>
-        </div>
-        <ul class="flower-results" aria-label="Hoa theo tông màu"></ul>
-        <p class="flower-empty" hidden>Ines đang cập nhật hoa cho tông màu bạn chọn.</p>
-        <p class="flower-preview-note">Tên hoa và hình giữ chỗ dùng để minh họa. Ines sẽ cập nhật ảnh và danh sách hoa có sẵn.</p>
-      </div>
-
-      <template id="flower-option-template">
-        <label class="flower-option">
-          <input type="checkbox" name="flower-tone">
-          <span class="flower-option-body">
-            <span class="flower-swatch" aria-hidden="true"></span>
-            <span class="flower-option-name"></span>
-          </span>
-        </label>
-      </template>
-
-      <template id="flower-card-template">
-        <li class="flower-card">
-          <div class="flower-card-image">
-            <img width="480" height="360" loading="lazy" alt="">
-            <span class="flower-image-placeholder" aria-hidden="true"></span>
+    <section class="section flower-picker-section" data-pearl id="chon-hoa" aria-labelledby="flower-title">
+      <div class="wrap flower-picker">
+        <div class="flower-picker-copy" data-reveal>
+          <p class="eyebrow with-line">Dành cho bạn chưa có hoa</p>
+          <h2 id="flower-title">Chọn hoa theo tông màu.</h2>
+          <p class="flower-picker-description">Chọn một hoặc nhiều tông màu bạn thích. Ines sẽ gợi ý hoa để phối cho khối resin của bạn.</p>
+          <fieldset class="flower-controls" hidden>
+            <legend>Tông màu bạn thích</legend>
+            <div class="flower-options"></div>
+          </fieldset>
+          <div class="flower-picker-actions">
+            <a class="text-link flower-inquiry" href="#lien-he"><span class="flower-inquiry-label">Hỏi Ines về hoa</span> <span aria-hidden="true">↗</span></a>
+            <button class="flower-clear" type="button" disabled>Bỏ chọn tất cả</button>
           </div>
-          <div class="flower-card-copy">
-            <p class="flower-card-tone"></p>
-            <h4 class="flower-card-name"></h4>
+        </div>
+
+        <div class="flower-panel" data-reveal="sheen">
+          <div class="flower-panel-heading">
+            <h3>Gợi ý phối hoa</h3>
+            <p class="flower-status" role="status"></p>
           </div>
-        </li>
-      </template>
+          <ul class="flower-results" aria-label="Hoa theo tông màu"></ul>
+          <p class="flower-empty" hidden>Ines đang cập nhật hoa cho tông màu bạn chọn.</p>
+          <p class="flower-preview-note">Tên hoa và hình giữ chỗ dùng để minh họa. Ines sẽ cập nhật ảnh và danh sách hoa có sẵn.</p>
+        </div>
+
+        <template id="flower-option-template">
+          <label class="flower-option">
+            <input type="checkbox" name="flower-tone">
+            <span class="flower-option-body">
+              <span class="flower-swatch" aria-hidden="true"></span>
+              <span class="flower-option-name"></span>
+            </span>
+          </label>
+        </template>
+
+        <template id="flower-card-template">
+          <li class="flower-card">
+            <div class="flower-card-image">
+              <img width="480" height="360" loading="lazy" alt="">
+              <span class="flower-image-placeholder" aria-hidden="true"></span>
+            </div>
+            <div class="flower-card-copy">
+              <p class="flower-card-tone"></p>
+              <h4 class="flower-card-name"></h4>
+            </div>
+          </li>
+        </template>
+      </div>
     </section>
 
-    <section class="section wrap notebook" id="loi-nhan" aria-labelledby="notebook-title">
-      <header class="notebook-heading">
+    <section class="section wrap notebook" data-pearl id="loi-nhan" aria-labelledby="notebook-title">
+      <header class="notebook-heading" data-reveal>
         <p class="eyebrow with-line">Trong quá trình làm hoa</p>
         <h2 id="notebook-title">Lời nhắn từ Ines.</h2>
         <p>Những điều bạn nên biết từ lúc tiệm nhận hoa đến khi bạn nhận tác phẩm.</p>
@@ -314,7 +394,7 @@
 
           <article class="notebook-spread" aria-labelledby="notebook-resin">
             <figure class="notebook-figure">
-              <img src="./assets/den-hoa-hero.webp" width="1118" height="1470" alt="Cận cảnh cánh hoa nằm trong khối resin dáng vòm" loading="lazy">
+              <img src="./assets/den-hoa-hero.webp" srcset="./assets/den-hoa-hero-small.webp 578w, ./assets/den-hoa-hero.webp 1118w" sizes="(max-width: 675px) 85vw, 40vw" width="1118" height="1470" alt="Cận cảnh cánh hoa nằm trong khối resin dáng vòm" loading="lazy">
               <figcaption>Chi tiết cánh hoa trong thành phẩm</figcaption>
             </figure>
             <div class="notebook-notes">
@@ -346,7 +426,7 @@
       </div>
     </section>
 
-    <section class="section wrap policies" id="chinh-sach" aria-labelledby="policies-title">
+    <section class="section wrap policies" data-pearl id="chinh-sach" aria-labelledby="policies-title">
       <div data-reveal>
         <p class="eyebrow with-line">Trước khi gửi hoa</p>
         <h2 id="policies-title">Gửi hoa và chăm sóc tác phẩm.</h2>
@@ -379,8 +459,8 @@
       </div>
     </section>
 
-    <section class="contact" id="lien-he" aria-labelledby="contact-title">
-      <div class="wrap contact-inner" data-reveal>
+    <section class="contact" data-pearl id="lien-he" aria-labelledby="contact-title">
+      <div class="wrap contact-inner" data-reveal="depth">
         <div>
           <p class="eyebrow with-line">Liên hệ Ines Pure Art</p>
           <h2 id="contact-title">Bạn muốn giữ lại bó hoa nào?</h2>
@@ -392,12 +472,39 @@
         </div>
       </div>
     </section>
+    <section class="section wrap customer-reviews" id="danh-gia" aria-labelledby="reviews-title" data-pearl>
+      <header class="reviews-heading" data-reveal>
+        <h2 id="reviews-title">Đánh giá của khách hàng</h2>
+      </header>
+      <div class="reviews-gallery">
+        <figure class="review-card" data-reveal="depth">
+          <div class="review-media review-media--messages">
+            <!-- Replace this placeholder with the customer's message image and meaningful alt text. -->
+            <div class="review-placeholder">
+              <span class="review-message-icon" aria-hidden="true"></span>
+              <span>Đang cập nhật ảnh</span>
+            </div>
+          </div>
+          <figcaption>Tin nhắn khách gửi</figcaption>
+        </figure>
+        <figure class="review-card" data-reveal="depth">
+          <div class="review-media review-media--video">
+            <!-- Replace this placeholder with a video that uses controls and preload="metadata". -->
+            <div class="review-placeholder">
+              <span class="review-video-icon" aria-hidden="true"></span>
+              <span>Đang cập nhật video</span>
+            </div>
+          </div>
+          <figcaption>Video cảm ơn khi nhận hàng</figcaption>
+        </figure>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <a class="brand" href="./index.html" aria-label="Ines Pure Art, trang chủ">
-        <img src="./assets/monogram.png" width="34" height="38" alt="">
+        <img src="./assets/monogram.png?v=2" width="156" height="180" alt="">
         <span>Ines Pure Art</span>
       </a>
       <span>TP. Hồ Chí Minh</span>
@@ -405,8 +512,8 @@
       <a class="back-to-top" href="#dau-trang">Lên đầu trang <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
-  <script src="./main.js" defer></script>
+  <script src="./main.js?v=10" defer></script>
   <script src="./flowers.js" defer></script>
-  <script src="./notebook.js" defer></script>
+  <script src="./notebook.js?v=2" defer></script>
 </body>
 </html>

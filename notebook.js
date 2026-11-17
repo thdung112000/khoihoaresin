@@ -23,6 +23,8 @@
   }
 
   function finishWriting() {
+    writingObserver?.disconnect();
+    writingObserver = null;
     cancelAnimationFrame(writingFrame);
     writingFrame = 0;
     pageInk().style.removeProperty('clip-path');
@@ -59,7 +61,7 @@
     pen.classList.remove('is-resting');
     pen.hidden = false;
     toggleWriting.textContent = 'Hiện chữ ngay';
-    const duration = Math.min(4200, Math.max(1500, lines.length * 390));
+    const duration = Math.min(6800, Math.max(1800, lines.length * 455));
     let started;
 
     function draw(now) {
@@ -78,7 +80,7 @@
       const written = Math.min(time / writingShare, 1);
       const inkEnd = line.left + (line.right - line.left + 1) * written;
       let tipX = inkEnd;
-      let tipY = line.bottom - 3;
+      let tipY = line.bottom - 3 + Math.sin(written * 19 * Math.PI) * 1.2;
 
       if (following && time > writingShare) {
         const lift = (time - writingShare) / (1 - writingShare);
@@ -96,17 +98,24 @@
   }
 
   function watchForWriting() {
-    writingObserver?.disconnect();
-    if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
-
-    const ink = pageInk();
-    ink.style.clipPath = 'inset(0 100% 0 0)';
-    writingObserver = new IntersectionObserver(([entry], observer) => {
-      if (!entry.isIntersecting) return;
-      observer.disconnect();
+    if (reducedMotion.matches) return;
+    if (!('IntersectionObserver' in window)) {
       writePage();
-    }, { rootMargin: '0px 0px -36px', threshold: .12 });
-    writingObserver.observe(ink);
+      return;
+    }
+
+    pageInk().style.clipPath = 'inset(0 100% 0 0)';
+    toggleWriting.textContent = 'Hiện chữ ngay';
+    const heading = spreads[currentPage].querySelector('.notebook-notes h3');
+    const headerHeight = document.querySelector('.site-header').offsetHeight;
+    writingObserver = new IntersectionObserver(([entry], observer) => {
+      if (entry.intersectionRatio < .65) return;
+      observer.disconnect();
+      writingObserver = null;
+      writePage();
+    }, { rootMargin: `-${headerHeight}px 0px -48px`, threshold: .65 });
+    // The ink itself is clipped until writing starts, so observe the heading.
+    writingObserver.observe(heading);
   }
 
   function renderPage(index) {
@@ -121,12 +130,11 @@
 
   function turnTo(index) {
     if (pageTurn || index < 0 || index >= spreads.length) return;
-    writingObserver?.disconnect();
     finishWriting();
 
-    const shouldFlip = !reducedMotion.matches && typeof book.animate === 'function';
-    if (!shouldFlip) {
+    if (reducedMotion.matches || typeof book.animate !== 'function') {
       renderPage(index);
+      watchForWriting();
       return;
     }
 
@@ -142,7 +150,7 @@
 
     book.append(sheet);
     renderPage(index);
-    if ('IntersectionObserver' in window) pageInk().style.clipPath = 'inset(0 100% 0 0)';
+    pageInk().style.clipPath = 'inset(0 100% 0 0)';
     pen.hidden = true;
     pageTurn = sheet.animate([
       { transform: 'perspective(1300px) rotateY(0deg)', opacity: 1 },
@@ -168,8 +176,7 @@
   });
   toggleWriting.addEventListener('click', () => {
     if (pageTurn) return;
-    writingObserver?.disconnect();
-    if (writingFrame) finishWriting();
+    if (writingObserver || writingFrame) finishWriting();
     else writePage();
   });
 
@@ -178,7 +185,6 @@
   });
   reducedMotion.addEventListener('change', () => {
     if (!reducedMotion.matches) return;
-    writingObserver?.disconnect();
     pageTurn?.finish();
     finishWriting();
   });

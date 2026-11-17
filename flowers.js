@@ -84,7 +84,7 @@
     emptyMessage.hidden = matches.length > 0;
     status.textContent = `${matches.length} ${hasSelection ? 'gợi ý minh họa' : 'mẫu xem trước'}`;
     clear.disabled = !hasSelection;
-    panel.style.setProperty('--flower-panel-tint', selected[0]?.tint ?? '#f2edf2');
+    panel.style.setProperty('--flower-panel-tint', selected[0]?.tint ?? '#eeeef7');
 
     const tones = selected.map(tone => tone.label).join(', ');
     const message = hasSelection ? `Chào Ines, mình muốn làm khối resin và đang thích các tông màu ${tones}. Tiệm có thể gợi ý hoa có sẵn giúp mình được không?` :
