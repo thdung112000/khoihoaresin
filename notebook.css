@@ -147,3 +147,31 @@
 @media (prefers-reduced-motion: reduce) {
   .notebook-writing-toggle { display: none; }
 }
+
+/* Ivory paper, a soft curved spine and a restrained linen cover. */
+.notebook-book {
+  border-color: #b5ac9d;
+  border-radius: 18px 24px 25px 18px;
+  background: #b8b0a3;
+  box-shadow: 0 2px 0 #f7f3e9, 0 5px 0 #d6cfc0, 0 8px 0 #a59b8c, 0 22px 42px -20px #594c3966;
+}
+.notebook-figure::before, .notebook-notes::before { border: 0; }
+.notebook-figure {
+  border-radius: 16px 52px 37px 16px / 16px 13px 18px 16px;
+  background: linear-gradient(90deg, #b8ad9720, transparent 6% 86%, #9a8a6f40 98%, #766b5d66), #f6f2e8;
+}
+.notebook-notes {
+  border-radius: 52px 20px 20px 37px / 13px 16px 16px 18px;
+  background: linear-gradient(90deg, #766b5d66, #9a8a6f26 4%, transparent 15% 95%, #b8ad9718), #fffcf4;
+}
+.notebook-figure img { border: 5px solid #fffdf7; border-radius: 44% 44% 3px 3px / 20% 20% 3px 3px; background: #eeeadf; box-shadow: 0 7px 18px #67583c15; }
+.notebook-figure-wide img { border-radius: 3px; }
+.notebook-figure figcaption { color: #817565; font-family: Georgia, serif; font-style: italic; }
+.notebook-notes h3 { color: #63584e; font-size: clamp(23px, 2.4vw, 33px); }
+.notebook-ink { color: #594f45; }
+.notebook-pagination button { border-color: #c8bfaf; background: #fffcf4; color: #6d6255; }
+.notebook-count, .notebook-writing-toggle { color: #726655; }
+@media (max-width: 675px) {
+  .notebook-figure { border-radius: 16px 20px 22px 22px / 16px 16px 9px 9px; background: linear-gradient(0deg, #94816b2e, transparent 16%), #f6f2e8; }
+  .notebook-notes { border-radius: 22px 22px 20px 16px / 9px 9px 16px 16px; background: linear-gradient(180deg, #94816b2e, transparent 12%), #fffcf4; }
+}

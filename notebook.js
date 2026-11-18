@@ -61,7 +61,7 @@
     pen.classList.remove('is-resting');
     pen.hidden = false;
     toggleWriting.textContent = 'Hiện chữ ngay';
-    const duration = Math.min(6800, Math.max(1800, lines.length * 455));
+    const duration = Math.min(26000, Math.max(6500, lines.length * 1250));
     let started;
 
     function draw(now) {

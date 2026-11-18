@@ -13,8 +13,8 @@
   <title>Khối hoa resin | Ines Pure Art</title>
   <link rel="icon" href="./assets/monogram.png?v=2" type="image/png">
   <link rel="preload" href="./assets/tan-twinkle.otf" as="font" type="font/otf" crossorigin>
-  <link rel="stylesheet" href="./styles.css?v=20">
-  <link rel="stylesheet" href="./notebook.css?v=3">
+  <link rel="stylesheet" href="./styles.css?v=21">
+  <link rel="stylesheet" href="./notebook.css?v=4">
 </head>
 <body id="dau-trang">
   <div class="scroll-progress" aria-hidden="true"></div>
@@ -184,6 +184,9 @@
               <figcaption>Nhúng ảnh vào khối hoa</figcaption>
             </figure>
           </li>
+          <li data-reveal="depth"><figure><div class="personal-media"><img src="./assets/so-tay-mau-hoa.webp" alt="Hoa sau khi ướp khô" loading="lazy"></div><figcaption>Ướp hoa khô</figcaption></figure></li>
+          <li data-reveal="depth"><figure><div class="personal-media"><img src="./assets/mau-sap-hoa.webp" alt="Bố cục hoa được sắp trước khi đúc resin" loading="lazy"></div><figcaption>Thiết kế mẫu hoa</figcaption></figure></li>
+          <li data-reveal="depth"><figure><div class="personal-media"><img src="./assets/ca-nhan-hoa.webp" alt="Màu nền của khối hoa resin" loading="lazy"></div><figcaption>Đổi màu nền khối hoa</figcaption></figure></li>
         </ul>
       </section>
     </section>
@@ -476,27 +479,43 @@
       <header class="reviews-heading" data-reveal>
         <h2 id="reviews-title">Đánh giá của khách hàng</h2>
       </header>
-      <div class="reviews-gallery">
-        <figure class="review-card" data-reveal="depth">
-          <div class="review-media review-media--messages">
-            <!-- Replace this placeholder with the customer's message image and meaningful alt text. -->
-            <div class="review-placeholder">
-              <span class="review-message-icon" aria-hidden="true"></span>
-              <span>Đang cập nhật ảnh</span>
-            </div>
-          </div>
-          <figcaption>Tin nhắn khách gửi</figcaption>
-        </figure>
-        <figure class="review-card" data-reveal="depth">
-          <div class="review-media review-media--video">
-            <!-- Replace this placeholder with a video that uses controls and preload="metadata". -->
-            <div class="review-placeholder">
-              <span class="review-video-icon" aria-hidden="true"></span>
-              <span>Đang cập nhật video</span>
-            </div>
-          </div>
-          <figcaption>Video cảm ơn khi nhận hàng</figcaption>
-        </figure>
+      <div class="review-slider" role="region" aria-roledescription="bộ trình chiếu" aria-label="Khoảnh khắc và tác phẩm" tabindex="0">
+        <div class="review-slides">
+          <article class="review-slide" aria-label="1 / 3">
+            <figure class="review-customer">
+              <!-- Thay ô chờ bằng ảnh khách hàng hoặc video có controls, preload="metadata". -->
+              <div class="review-awaiting"><span class="review-ordinal">01</span><span class="review-video-icon" aria-hidden="true"></span><p>Khoảnh khắc của bạn</p><small>Đang cập nhật ảnh / video khách hàng</small></div>
+              <figcaption>Kỷ niệm được gửi gắm</figcaption>
+            </figure>
+            <figure class="review-product">
+              <img src="./assets/den-hoa.webp" alt="Đèn hoa — ảnh minh họa tác phẩm" loading="lazy">
+              <figcaption><span>Tác phẩm lưu giữ kỷ niệm</span><h3>Đèn hoa</h3><small>Ảnh minh họa · chờ ghép với câu chuyện khách hàng</small></figcaption>
+            </figure>
+          </article>
+          <article class="review-slide" aria-label="2 / 3" hidden>
+            <figure class="review-customer">
+              <!-- Thay ô chờ bằng ảnh khách hàng hoặc video có controls, preload="metadata". -->
+              <div class="review-awaiting"><span class="review-ordinal">02</span><span class="review-video-icon" aria-hidden="true"></span><p>Khoảnh khắc của bạn</p><small>Đang cập nhật ảnh / video khách hàng</small></div>
+              <figcaption>Kỷ niệm được gửi gắm</figcaption>
+            </figure>
+            <figure class="review-product">
+              <img src="./assets/guong-hoa.webp" alt="Gương hoa — ảnh minh họa tác phẩm" loading="lazy">
+              <figcaption><span>Tác phẩm lưu giữ kỷ niệm</span><h3>Gương hoa</h3><small>Ảnh minh họa · chờ ghép với câu chuyện khách hàng</small></figcaption>
+            </figure>
+          </article>
+          <article class="review-slide" aria-label="3 / 3" hidden>
+            <figure class="review-customer">
+              <!-- Thay ô chờ bằng ảnh khách hàng hoặc video có controls, preload="metadata". -->
+              <div class="review-awaiting"><span class="review-ordinal">03</span><span class="review-video-icon" aria-hidden="true"></span><p>Khoảnh khắc của bạn</p><small>Đang cập nhật ảnh / video khách hàng</small></div>
+              <figcaption>Kỷ niệm được gửi gắm</figcaption>
+            </figure>
+            <figure class="review-product">
+              <img src="./assets/dong-ho-hoa.webp" alt="Đồng hồ hoa — ảnh minh họa tác phẩm" loading="lazy">
+              <figcaption><span>Tác phẩm lưu giữ kỷ niệm</span><h3>Đồng hồ hoa</h3><small>Ảnh minh họa · chờ ghép với câu chuyện khách hàng</small></figcaption>
+            </figure>
+          </article>
+        </div>
+        <div class="review-controls"><span class="review-counter" role="status" aria-live="polite">01 / 03</span><div><button type="button" class="review-prev" aria-label="Câu chuyện trước">↑</button><button type="button" class="review-next" aria-label="Câu chuyện sau">↓</button></div></div>
       </div>
     </section>
   </main>
@@ -514,6 +533,7 @@
   </footer>
   <script src="./main.js?v=10" defer></script>
   <script src="./flowers.js" defer></script>
-  <script src="./notebook.js?v=2" defer></script>
+  <script src="./notebook.js?v=3" defer></script>
+  <script src="./reviews.js?v=1" defer></script>
 </body>
 </html>
