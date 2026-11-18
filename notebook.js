@@ -39,6 +39,8 @@
     if (reducedMotion.matches) return;
 
     const ink = pageInk();
+    // Measure in book coordinates so the pen follows the slanted page.
+    book.style.rotate = "none";
     const bounds = ink.getBoundingClientRect();
     const bookBounds = book.getBoundingClientRect();
     const originX = bounds.left - bookBounds.left - book.clientLeft;
@@ -53,6 +55,7 @@
         bottom: Math.min(bounds.height, line.bottom - bounds.top + 1),
       }));
     });
+    book.style.removeProperty("rotate");
     if (!lines.length) {
       finishWriting();
       return;

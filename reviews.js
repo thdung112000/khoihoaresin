@@ -15,11 +15,58 @@
   let lastWheel = 0;
   let wheelUsed = false;
 
+  function play(link, automatic) {
+    const panel = link.closest('.review-video');
+    if (panel.querySelector('iframe')) return;
+    const player = document.createElement('iframe');
+    const url = new URL(`https://www.youtube-nocookie.com/embed/${link.dataset.youtube}`);
+    url.searchParams.set('autoplay', '1');
+    url.searchParams.set('playsinline', '1');
+    if (automatic) url.searchParams.set('mute', '1');
+    const start = new URL(link.href).searchParams.get('t');
+    if (start) url.searchParams.set('start', start);
+    player.src = url.href;
+    player.title = link.dataset.videoTitle;
+    player.allow = 'autoplay; encrypted-media; picture-in-picture';
+    player.allowFullscreen = true;
+    panel.append(player);
+    link.hidden = true;
+    if (!automatic) player.focus();
+  }
+
+  function unload(panel) {
+    panel.querySelector('iframe')?.remove();
+    panel.querySelector('.review-play').hidden = false;
+  }
+
+  slider.addEventListener('click', event => {
+    const link = event.target.closest('.review-play');
+    if (!link || location.protocol === 'file:' || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    play(link, false);
+  });
+
+  if (location.protocol !== 'file:') {
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        const panel = entry.target;
+        if (!entry.isIntersecting) {
+          unload(panel);
+        } else if (entry.intersectionRatio >= .45 && slides[index].contains(panel) && !reduced.matches) {
+          play(panel.querySelector('.review-play'), true);
+        }
+      }
+    }, { threshold: [0, .45] });
+    slider.querySelectorAll('.review-video').forEach(panel => observer.observe(panel));
+  }
+
   async function show(target) {
     if (busy || target === index) return;
     busy = true;
     const outgoing = slides[index];
     outgoing.querySelectorAll('video').forEach(video => video.pause());
+    const outgoingVideo = outgoing.querySelector('.review-video');
+    if (outgoingVideo) unload(outgoingVideo);
     const direction = target > index ? 1 : -1;
     const animate = (slide, entering) => Promise.all([...slide.children].map((panel, side) => {
       const offset = (side ? -1 : 1) * direction * 48;

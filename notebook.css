@@ -148,30 +148,48 @@
   .notebook-writing-toggle { display: none; }
 }
 
-/* Ivory paper, a soft curved spine and a restrained linen cover. */
+
+/* A slanted, open book with pearl paper and visible layers at the edges. */
+.notebook-shell {
+  max-width: 1080px;
+  margin-inline: auto;
+}
 .notebook-book {
-  border-color: #b5ac9d;
-  border-radius: 18px 24px 25px 18px;
-  background: #b8b0a3;
-  box-shadow: 0 2px 0 #f7f3e9, 0 5px 0 #d6cfc0, 0 8px 0 #a59b8c, 0 22px 42px -20px #594c3966;
+  margin: 30px 24px 48px;
+  rotate: -4deg;
+  background: #6b7595;
+  border-color: #a9b5cf;
 }
-.notebook-figure::before, .notebook-notes::before { border: 0; }
-.notebook-figure {
-  border-radius: 16px 52px 37px 16px / 16px 13px 18px 16px;
-  background: linear-gradient(90deg, #b8ad9720, transparent 6% 86%, #9a8a6f40 98%, #766b5d66), #f6f2e8;
+.notebook-figure::before,
+.notebook-notes::before {
+  border-color: #a9b8d455;
 }
+.notebook-figure img {
+  rotate: -2deg;
+  border: 4px solid #fff;
+  border-radius: 3px 12px 4px 8px;
+}
+.notebook-figure figcaption { font-style: italic; }
 .notebook-notes {
-  border-radius: 52px 20px 20px 37px / 13px 16px 16px 18px;
-  background: linear-gradient(90deg, #766b5d66, #9a8a6f26 4%, transparent 15% 95%, #b8ad9718), #fffcf4;
+  background: linear-gradient(90deg, #818dac72, #bec9de25 11%, transparent 26%),
+              linear-gradient(150deg, #fff, #f5f6fc 54%, #e8edfa);
 }
-.notebook-figure img { border: 5px solid #fffdf7; border-radius: 44% 44% 3px 3px / 20% 20% 3px 3px; background: #eeeadf; box-shadow: 0 7px 18px #67583c15; }
-.notebook-figure-wide img { border-radius: 3px; }
-.notebook-figure figcaption { color: #817565; font-family: Georgia, serif; font-style: italic; }
-.notebook-notes h3 { color: #63584e; font-size: clamp(23px, 2.4vw, 33px); }
-.notebook-ink { color: #594f45; }
-.notebook-pagination button { border-color: #c8bfaf; background: #fffcf4; color: #6d6255; }
-.notebook-count, .notebook-writing-toggle { color: #726655; }
+.notebook-pen.is-resting {
+  --pen-lean: 16deg;
+  width: clamp(80px, 9vw, 116px);
+  right: 24px;
+  bottom: 12px;
+  opacity: 1;
+}
 @media (max-width: 675px) {
-  .notebook-figure { border-radius: 16px 20px 22px 22px / 16px 16px 9px 9px; background: linear-gradient(0deg, #94816b2e, transparent 16%), #f6f2e8; }
-  .notebook-notes { border-radius: 22px 22px 20px 16px / 9px 9px 16px 16px; background: linear-gradient(180deg, #94816b2e, transparent 12%), #fffcf4; }
+  .notebook-book { margin: 12px 6px 25px; rotate: -1deg; }
+  .notebook-notes { background: linear-gradient(180deg, #b7c3dd66, transparent 14%), #f8faff; }
+  .notebook-pen.is-resting { width: 64px; right: 16px; }
+}
+
+@media (min-width: 676px) {
+  .notebook-shell { max-width: 860px; }
+  .notebook-spread { min-height: clamp(500px, 44vw, 610px); }
+  .notebook-figure:not(.notebook-figure-wide) img { height: auto; aspect-ratio: 4 / 5; }
+  .notebook-notes h3 { text-wrap: balance; }
 }
