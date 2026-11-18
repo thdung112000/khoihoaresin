@@ -24,7 +24,7 @@
   <meta name="twitter:title" content="Ines Pure Art - Tạo Tác Resin Thuần Khiết">
   <meta name="twitter:image" content="https://www.inespureart.com/assets/logo-gray-white.png">
   <link rel="preload" href="./assets/tan-twinkle.otf" as="font" type="font/otf" crossorigin>
-  <link rel="stylesheet" href="./styles.css?v=40">
+  <link rel="stylesheet" href="./styles.css?v=55">
   <link rel="stylesheet" href="./notebook.css?v=4">
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://www.inespureart.com/#website", "url": "https://www.inespureart.com/", "name": "Ines Pure Art", "alternateName": "Ines Pure Art - Tạo Tác Resin Thuần Khiết"}, {"@type": "Organization", "@id": "https://www.inespureart.com/#organization", "name": "Ines Pure Art", "url": "https://www.inespureart.com/", "logo": "https://www.inespureart.com/assets/logo-gray-white.png"}]}</script>
 </head>
@@ -57,7 +57,7 @@
         </div>
         <div class="hero-art">
           <picture>
-            <source media="(max-width: 600px)" srcset="./assets/hero-xa-cu-mobile-640.webp?v=2 640w, ./assets/hero-xa-cu-mobile.webp?v=2 940w" sizes="100vw" width="940" height="710">
+            <source media="(max-width: 600px)" srcset="./assets/hero-xa-cu-800.webp 800w, ./assets/hero-xa-cu-1280.webp?v=2 1280w" sizes="100vw" width="800" height="450">
             <img src="./assets/hero-xa-cu.webp?v=2" srcset="./assets/hero-xa-cu-1280.webp?v=2 1280w, ./assets/hero-xa-cu.webp?v=2 2200w" sizes="min(100vw, 1760px, max(800px, (100svh - 168px) * 1.7778))" width="2200" height="1238" alt="Khối hoa resin dáng vòm giữa những cánh hoa ánh xà cừ" fetchpriority="high">
           </picture>
           <div class="hero-interaction" aria-hidden="true">
@@ -92,52 +92,61 @@
           <p class="collection-story">Từ chiếc đèn trên bàn đầu giường đến chiếc gương bạn soi mỗi sáng, hãy chọn cách để bó hoa hiện diện trong nhà mình.</p>
           <div class="collection-subheading">
             <h3 id="lamps-title">Đèn hoa</h3>
-            <p>Ánh đèn dịu tỏa qua từng cánh hoa. Chọn dáng đèn phù hợp với bó hoa của bạn.</p>
+            <p>Ánh sáng dịu dàng ôm lấy từng cánh hoa, đưa những kỷ niệm yêu thương trở về trong một không gian lãng mạn và tinh tế.</p><p>Mỗi dáng đèn có ba kích thước S, M, L. Chạm vào từng dáng để xem chi tiết.</p>
           </div>
         </div>
         <section class="lamp-collection" aria-labelledby="lamps-title">
         <div class="product-grid lamp-grid">
           <article class="product-card" data-reveal="depth">
+            <button class="lamp-detail-trigger" type="button" data-lamp="Dáng vòm" aria-label="Xem kích thước và ảnh thực tế dáng vòm">
+            <div class="lamp-placeholder" aria-hidden="true"><span class="lamp-shape lamp-shape--arch"></span></div>
+            <div class="product-copy"><h4>Dáng vòm</h4><p class="lamp-card-sizes"><span>S: 15 × 13</span><span>M: 20 × 18</span><span>L: 25 × 20</span></p></div>
+            </button>
+          </article>
+          <article class="product-card" data-reveal="depth">
+            <button class="lamp-detail-trigger" type="button" data-lamp="Dáng vuông" aria-label="Xem kích thước và ảnh thực tế dáng vuông">
             <div class="lamp-placeholder" aria-hidden="true"><span class="lamp-shape lamp-shape--square"></span></div>
-            <div class="product-copy"><h4>Dáng vuông</h4></div>
+            <div class="product-copy"><h4>Dáng vuông</h4><p class="lamp-card-sizes"><span>S: 15 × 15</span><span>M: 20 × 20</span><span>L: 25 × 25</span></p></div>
+            </button>
           </article>
           <article class="product-card" data-reveal="depth">
-            <img class="product-image" src="./assets/den-hoa.webp" width="898" height="950" alt="Đèn dáng vòm giữ hoa cưới màu trắng và vàng" loading="lazy">
-            <div class="product-copy"><h4>Dáng vòm</h4></div>
-          </article>
-          <article class="product-card" data-reveal="depth">
+            <button class="lamp-detail-trigger" type="button" data-lamp="Dáng lục giác" aria-label="Xem kích thước và ảnh thực tế dáng lục giác">
             <div class="lamp-placeholder" aria-hidden="true"><span class="lamp-shape lamp-shape--hex"></span></div>
-            <div class="product-copy"><h4>Dáng lục giác</h4></div>
+            <div class="product-copy"><h4>Dáng lục giác</h4><p class="lamp-card-sizes"><span>S: 16 × 14</span><span>M: 23 × 20</span><span>L: 28 × 25</span></p></div>
+            </button>
           </article>
           <article class="product-card" data-reveal="depth">
+            <button class="lamp-detail-trigger" type="button" data-lamp="Dáng chữ nhật" aria-label="Xem kích thước và ảnh thực tế dáng chữ nhật">
             <div class="lamp-placeholder" aria-hidden="true"><span class="lamp-shape lamp-shape--rectangle"></span></div>
-            <div class="product-copy"><h4>Dáng chữ nhật</h4></div>
+            <div class="product-copy"><h4>Dáng chữ nhật</h4><p class="lamp-card-sizes"><span>S: 18 × 15</span><span>M: 24 × 18</span><span>L: 30 × 24</span></p></div>
+            </button>
           </article>
         </div>
         </section>
       </div>
 
-      <div class="product-grid collection-row">
+      <p class="collection-gallery-note">Hình ảnh là những kiểu dáng Ines đã thực hiện. Ngoài ra, tác phẩm còn có thể được tạo hình chữ nhật, vuông, tròn và nhiều kiểu dáng khác theo sở thích của bạn. Hãy thoải mái chia sẻ ý tưởng cùng Ines.</p>
+      <div class="product-grid collection-row collection-gallery">
         <article class="product-card" data-reveal="depth">
-          <img class="product-image image-mirror" src="./assets/guong-hoa.webp" width="678" height="900" alt="Gương uốn lượn viền hoa tông cam" loading="lazy">
-          <div class="product-copy">
-            <h3>Gương hoa</h3>
-            <p>Những cánh hoa viền quanh dáng gương bạn chọn.</p>
-          </div>
-        </article>
-        <article class="product-card" data-reveal="depth">
-          <img class="product-image image-clock" src="./assets/dong-ho-hoa.webp" width="821" height="900" alt="Đồng hồ resin tròn với hoa xanh và vàng" loading="lazy">
-          <div class="product-copy">
-            <h3>Đồng hồ hoa</h3>
-            <p>Chiếc đồng hồ làm từ bó hoa của ngày ấy.</p>
-          </div>
-        </article>
-        <article class="product-card" data-reveal="depth">
-          <img class="product-image image-table" src="./assets/ban-hoa.webp" width="900" height="705" alt="Bàn tròn mặt resin với hoa nhiều màu" loading="lazy">
           <div class="product-copy">
             <h3>Bàn hoa</h3>
-            <p>Mặt bàn trong suốt để ngắm trọn bó hoa.</p>
+
           </div>
+          <img class="product-image image-table" src="./assets/ban-hoa.webp" width="900" height="705" alt="Bàn tròn mặt resin với hoa nhiều màu" loading="lazy">
+        </article>
+        <article class="product-card" data-reveal="depth">
+          <div class="product-copy">
+            <h3>Gương hoa</h3>
+
+          </div>
+          <img class="product-image image-mirror" src="./assets/guong-hoa-moi.webp" width="900" height="1350" alt="Gương uốn lượn viền hoa tông cam" loading="lazy">
+        </article>
+        <article class="product-card" data-reveal="depth">
+          <div class="product-copy">
+            <h3>Đồng hồ hoa</h3>
+
+          </div>
+          <img class="product-image image-clock" src="./assets/dong-ho-hoa.webp" width="821" height="900" alt="Đồng hồ resin tròn với hoa xanh và vàng" loading="lazy">
         </article>
       </div>
 
@@ -205,7 +214,7 @@
 
     <section class="make-it-yours" data-pearl id="ca-nhan-hoa" aria-labelledby="personal-title">
       <div class="personal-background personal-background--still" aria-hidden="true">
-        <img src="./assets/nen-nang-tam-pha-le.webp" alt="" width="736" height="977" loading="lazy" decoding="async">
+        <img src="./assets/nen-nang-tam-canh-hoa.webp" alt="" width="810" height="1440" loading="lazy" decoding="async">
       </div>
       <div class="wrap personal-banner">
         <header class="personal-heading">
@@ -245,7 +254,7 @@
             </figure>
           </li>
         </ul>
-        <p class="personal-drag-hint">Nhấn giữ và kéo sang hai bên để khám phá <span aria-hidden="true">↔</span></p>
+        <p class="personal-drag-hint">Vuốt sang hai bên để khám phá <span aria-hidden="true">↔</span></p>
       </div>
     </section>
 
@@ -444,7 +453,7 @@
             </div>
           </article>
 
-          <img class="notebook-pen" src="./assets/but-long-vu-xa-cu.png" width="1024" height="1536" alt="" aria-hidden="true" loading="lazy" hidden>
+          <img class="notebook-pen" src="./assets/but-long-vu-xa-cu.webp" width="384" height="576" alt="" aria-hidden="true" loading="lazy" hidden>
         </div>
       </div>
     </section>
@@ -551,10 +560,20 @@
       <a class="back-to-top" href="#dau-trang">Lên đầu trang <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
+  <dialog class="lamp-dialog" aria-labelledby="lamp-dialog-title">
+    <div class="lamp-dialog-inner">
+      <button class="lamp-dialog-close" type="button" aria-label="Đóng">×</button>
+      <h2 id="lamp-dialog-title"></h2>
+      <p>Mỗi dáng đèn có ba kích thước S, M và L.</p>
+      <ul class="lamp-sizes"><li>S <span>Đang cập nhật số đo</span></li><li>M <span>Đang cập nhật số đo</span></li><li>L <span>Đang cập nhật số đo</span></li></ul>
+      <div class="lamp-real-photo"></div>
+    </div>
+  </dialog>
+  <script src="./lamp-details.js?v=2" defer></script>
   <script src="./main.js?v=10" defer></script>
   <script src="./flowers.js" defer></script>
   <script src="./notebook.js?v=3" defer></script>
   <script src="./reviews.js?v=3" defer></script>
-  <script src="./personal-carousel.js?v=1" defer></script>
+  <script src="./personal-carousel.js?v=3" defer></script>
 </body>
 </html>

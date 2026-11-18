@@ -8,10 +8,11 @@
   let dragging = false, frame = 0;
   const spacing = () => cards[0].offsetWidth * 1.04;
   function paint() {
+    const cardSpacing = spacing();
     cards.forEach((card, i) => {
       const distance = ((i - position + count * 100 + count / 2) % count) - count / 2;
       const angle = Math.max(-1, Math.min(1, distance)) * -29;
-      card.style.transform = `translateX(calc(-50% + ${distance * spacing()}px)) translateZ(${-Math.min(Math.abs(distance), 2) * 35}px) rotateY(${angle}deg)`;
+      card.style.transform = `translateX(calc(-50% + ${distance * cardSpacing}px)) translateZ(${-Math.min(Math.abs(distance), 2) * 35}px) rotateY(${angle}deg)`;
       card.style.opacity = Math.abs(distance) > 1.75 ? '0' : '1';
       card.style.zIndex = String(Math.round((count - Math.abs(distance)) * 10));
     });
@@ -29,8 +30,36 @@
     }
     frame = requestAnimationFrame(tick);
   }
+  let touch = null;
+  stage.addEventListener('touchstart', event => {
+    if (event.touches.length !== 1) return;
+    cancelAnimationFrame(frame);
+    const point = event.touches[0];
+    touch = { x: point.clientX, y: point.clientY, start: position, direction: null, dx: 0 };
+  }, { passive: true });
+  stage.addEventListener('touchmove', event => {
+    if (!touch || event.touches.length !== 1) return;
+    const point = event.touches[0];
+    const dx = point.clientX - touch.x, dy = point.clientY - touch.y;
+    if (!touch.direction && Math.max(Math.abs(dx), Math.abs(dy)) > 6)
+      touch.direction = Math.abs(dx) > Math.abs(dy) ? 'horizontal' : 'vertical';
+    if (touch.direction !== 'horizontal') return;
+    if (event.cancelable) event.preventDefault();
+    touch.dx = dx;
+    position = touch.start - dx / spacing();
+    paint();
+  }, { passive: false });
+  function finishTouch() {
+    if (!touch) return;
+    if (touch.direction === 'horizontal' && Math.abs(touch.dx) > 35 && Math.abs(position - touch.start) < .5)
+      position = Math.round(touch.start) - Math.sign(touch.dx);
+    touch = null;
+    settle();
+  }
+  stage.addEventListener('touchend', finishTouch);
+  stage.addEventListener('touchcancel', finishTouch);
   stage.addEventListener('pointerdown', event => {
-    if (!event.isPrimary || event.button !== 0) return;
+    if (event.pointerType === 'touch' || !event.isPrimary || event.button !== 0) return;
     cancelAnimationFrame(frame);
     pointer = event.pointerId;
     originX = event.clientX; originY = event.clientY; originPosition = position;
