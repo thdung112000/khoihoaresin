@@ -1215,7 +1215,7 @@ section[id], details[id] { scroll-margin-top: 16px; }
   .perk-title { font-size: 21px; }
 }
 
-.personal-background--still > img { transform: scale(1.14); }
+.personal-background--still > img { object-position: center; }
 .personal-background--still::after { background: linear-gradient(180deg, #f7f8fa80, #f7f8fa40 35% 80%, #f7f8fa80); }
 
 .personal-banner .personal-description p:not(.personal-focus) { margin: 0; max-width: none; font-size: 22px; line-height: 1.45; text-wrap: pretty; }
