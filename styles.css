@@ -1498,11 +1498,14 @@ section[id], details[id] { scroll-margin-top: 16px; }
 .lamp-card-sizes span { display: block; white-space: nowrap; }
 .collection-gallery-note { max-width: 940px; margin: clamp(34px, 5vw, 65px) auto 0; color: var(--muted); font-size: clamp(16px, 1.3vw, 18px); line-height: 1.7; }
 .product-grid.collection-gallery { margin-top: 20px; }
-/* Keep the collection's product groups visually connected. */
-.collection-showcase .lamp-grid { padding-bottom: 20px; }
-.collection-gallery-note { margin-top: clamp(16px, 2vw, 26px); }
+/* Reserve space for the staggered column before the gallery note. */
+.collection-showcase .lamp-grid {
+  --lamp-stagger: 64px;
+  padding-bottom: var(--lamp-stagger);
+}
+.collection-showcase .lamp-grid .product-card:nth-child(even) { top: var(--lamp-stagger); }
+.collection-gallery-note { margin-top: clamp(20px, 2vw, 28px); }
 .product-grid.collection-gallery { border-top: 0; box-shadow: none; padding-top: 0; }
 @media (max-width: 760px) {
-  .collection-showcase .lamp-grid { padding-bottom: 20px; }
-  .collection-gallery-note { margin-top: 20px; }
+  .collection-showcase .lamp-grid { --lamp-stagger: 40px; }
 }
