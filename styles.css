@@ -328,8 +328,7 @@ section[id], details[id] { scroll-margin-top: 16px; }
 
 .make-it-yours {
   padding-block: clamp(44px, 6vw, 90px);
-  background: linear-gradient(to bottom, var(--paper), #f7f8fa29 13%, #f7f8fa19 85%, var(--paper)),
-              url("./assets/nen-nang-tam.webp") center / cover no-repeat, var(--paper);
+  background: var(--pearl-light);
 }
 .personal-banner {
   --wave-width: clamp(100px, 12vw, 165px);
@@ -1044,4 +1043,327 @@ section[id], details[id] { scroll-margin-top: 16px; }
   .review-product h3 { font-size: 24px; line-height: 1.3; }
   .review-product small, .review-awaiting small { font-size: .65rem; }
   .review-controls { padding: 12px 16px 16px; }
+}
+
+.review-scroll-hint { font-size: .74rem; letter-spacing: .04em; }
+
+.small-collection {
+  padding: 0 clamp(16px, 2.5vw, 36px) clamp(24px, 3vw, 42px);
+  background: linear-gradient(#ffffff45, #ffffff30), url("./assets/nen-mon-nho.jpeg") center / 112% auto no-repeat;
+  border-top: 0;
+  box-shadow: none;
+  border-radius: var(--radius-panel);
+}
+.small-collection .collection-subheading { margin-bottom: 24px; }
+.small-collection .collection-subheading p { color: var(--ink); }
+@media (max-width: 600px) {
+  .small-collection { background-size: auto 115%; }
+}
+
+/* A draggable perspective gallery inside the original wave silhouette. */
+.personal-banner { display: block; width: 100%; margin-inline: 0; padding-bottom: calc(var(--wave-height) + 12px); }
+.personal-banner .personal-heading { padding: clamp(34px, 4vw, 56px) 24px 20px; background: transparent; box-shadow: none; }
+.personal-banner .personal-heading h2 { font-size: clamp(30px, 3.7vw, 52px); }
+.personal-banner .personal-heading p { max-width: 700px; }
+.personal-banner .personal-options.personal-carousel {
+  display: block;
+  position: relative;
+  height: clamp(580px, 53vw, 800px);
+  perspective: 1100px;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.personal-carousel.is-dragging { cursor: grabbing !important; }
+.personal-banner .personal-carousel li {
+  position: absolute;
+  inset: 22px auto 22px 50%;
+  width: 42%;
+  border-radius: 12px;
+  will-change: transform;
+  box-shadow: 0 12px 24px -14px #34405466;
+  backface-visibility: hidden;
+}
+.personal-banner .personal-carousel figure { display: grid; grid-template-rows: minmax(0, 1fr) auto; height: 100%; }
+.personal-banner .personal-carousel .personal-media { height: 100%; aspect-ratio: auto; }
+.personal-carousel img { pointer-events: none; -webkit-user-drag: none; }
+.personal-banner .personal-carousel figcaption {
+  position: static;
+  padding: 20px 24px 24px;
+  background: #fafbfdf5;
+  color: var(--ink);
+  text-align: left;
+}
+.personal-caption-title { display: block; line-height: 1.45; }
+.personal-caption-detail { display: block; min-height: 3.2em; margin-top: 12px; font-size: 17px; line-height: 1.6; font-weight: 400; }
+.personal-drag-hint { margin: 5px 16px 12px; color: var(--muted); text-align: center; font-size: .77rem; }
+.personal-drag-hint span { margin-left: 10px; }
+@media (max-width: 760px) {
+  .personal-banner .personal-heading { padding: 36px 20px 12px; }
+  .personal-banner .personal-carousel li { width: 78%; inset-block: 20px; }
+  .personal-banner .personal-options.personal-carousel { height: 550px; perspective: 750px; }
+  .personal-banner .personal-carousel figcaption { padding: 18px 16px 20px; }
+}
+
+.personal-banner .personal-heading h2 span { display: inline-block; }
+.personal-banner .personal-heading p:not(.personal-focus) {
+  max-width: 58ch;
+  font-size: clamp(22px, 1.6vw, 24px);
+  line-height: 1.65;
+  font-weight: 400;
+  color: #343d4d;
+  text-wrap: pretty;
+}
+.personal-description > span { display: block; }
+.personal-description > span + span { margin-top: .6em; }
+.personal-banner .personal-heading p:not(.personal-focus) + p { margin-top: 20px; }
+.personal-banner .personal-heading .button { font-size: 18px; }
+.personal-banner .personal-carousel figcaption { font-size: clamp(16px, 1.3vw, 20px); }
+.personal-drag-hint { font-size: 16px; }
+@media (max-width: 760px) {
+  .personal-copy-break { display: none; }
+  .personal-banner .personal-heading p:not(.personal-focus) { font-size: 20px; text-align: left; width: 100%; max-width: 36ch; }
+  .personal-banner .personal-heading .button { font-size: 16px; }
+}
+
+.make-it-yours { position: relative; isolation: isolate; }
+.personal-background { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: #e7e7e9; }
+.personal-background > img, .personal-background-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.personal-background-video { opacity: 0; transition: opacity .35s ease; }
+.personal-background-video.is-playing { opacity: 1; }
+.personal-background::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #f7f8fa80, #f7f8fa66 30% 80%, #f7f8faad); }
+@media (prefers-reduced-motion: reduce) {
+  .personal-background-video { display: none; }
+}
+
+/* Fit the whole gallery beneath the fixed navigation, prioritizing the cards. */
+.make-it-yours { padding-block: 0; }
+.personal-banner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: calc(100svh - var(--header-height, 69px) - 32px);
+  min-height: 520px;
+  padding-bottom: calc(var(--wave-height) + 8px);
+}
+.personal-banner .personal-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-area: auto;
+  align-items: center;
+  gap: 12px 28px;
+  padding: 24px var(--outer) 10px;
+}
+.personal-title-line { grid-column: 1 / -1; display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; gap: 6px 22px; }
+.personal-banner .personal-heading h2 { font-size: clamp(30px, 3vw, 44px); line-height: 1.15; }
+.personal-banner .personal-heading .personal-focus { font-size: 24px; line-height: 1.2; border: 0; padding: 0; margin: 0; }
+.personal-banner .personal-heading .personal-description { max-width: 70ch; width: 100%; font-size: 22px; line-height: 1.45; text-align: left; margin: 0; }
+.personal-banner .personal-heading .button { margin: 0; min-height: 44px; }
+.personal-banner .personal-options.personal-carousel { height: auto; min-height: 0; }
+.personal-banner .personal-carousel li { inset-block: 12px; }
+.personal-banner .personal-carousel .personal-media { min-height: 0; }
+.personal-banner .personal-carousel li:nth-child(n) figcaption { padding: 12px 20px 14px; }
+.personal-caption-detail { min-height: 2.6em; margin-top: 6px; }
+.personal-drag-hint { margin: 4px 16px; line-height: 1.4; }
+@media (max-width: 760px) {
+  .personal-banner { min-height: 540px; }
+  .personal-banner .personal-heading { grid-template-columns: 1fr; padding: 20px 20px 6px; gap: 8px; }
+  .personal-title-line { gap: 3px 12px; }
+  .personal-banner .personal-heading h2 { font-size: 26px; }
+  .personal-banner .personal-heading .personal-focus { font-size: 18px; }
+  .personal-banner .personal-heading .personal-description { max-width: 42ch; font-size: 20px; line-height: 1.4; }
+  .personal-banner .personal-heading .button { min-height: 40px; padding-block: 7px; font-size: 16px; }
+  .personal-banner .personal-carousel li { inset-block: 10px; }
+  .personal-banner .personal-carousel li:nth-child(n) figcaption { padding: 10px 12px; }
+  .personal-caption-detail { min-height: 2.5em; font-size: 16px; }
+  .personal-drag-hint { font-size: 14px; }
+}
+@media (max-height: 620px) {
+  .personal-banner { height: auto; min-height: 0; grid-template-rows: auto 360px auto; }
+}
+
+/* Included services: image, service, description, separated by fine rules. */
+.included-perks .collection-subheading { margin-bottom: 28px; }
+.perks-column-labels, .perk-row { display: grid; grid-template-columns: minmax(130px, .85fr) minmax(190px, 1.2fr) minmax(0, 2.45fr); column-gap: clamp(20px, 3vw, 44px); }
+.perks-column-labels { padding-block: 12px; border-bottom: 1px solid #aab4c3; color: var(--muted); font-size: 14px; letter-spacing: .06em; }
+.perks-list { margin: 0; padding: 0; list-style: none; }
+.perk-row { align-items: center; padding-block: 20px; border-bottom: 1px solid #cbd2de; }
+.perk-visual { min-width: 0; margin: 0; }
+.perk-visual img { width: 100%; height: clamp(110px, 10vw, 152px); object-fit: cover; border-radius: 4px; background: #e7ecf2; }
+.perk-visual .perk-light { object-position: center 70%; }
+.perk-visual .perk-engraving { object-position: center 95%; }
+.perk-visual .perk-lettering { object-position: center 76%; }
+.perk-visual .perk-photo { object-position: center 54%; }
+.perk-visual figcaption { margin-top: 4px; color: var(--muted); font-size: 12px; }
+.perk-title { margin: 0; font: 400 clamp(22px, 2vw, 29px)/1.35 var(--headline); overflow-wrap: anywhere; }
+.perk-description { align-self: stretch; display: flex; align-items: center; padding-left: clamp(20px, 3vw, 44px); border-left: 1px solid #cbd2de; color: #394353; font-size: clamp(18px, 1.4vw, 21px); line-height: 1.6; }
+@media (max-width: 760px) {
+  .perks-column-labels { display: none; }
+  .included-perks .collection-subheading { margin-bottom: 18px; }
+  .perks-list { border-top: 1px solid #aab4c3; }
+  .perk-row { grid-template-columns: 92px minmax(0, 1fr); gap: 10px 16px; padding-block: 20px; align-items: start; }
+  .perk-visual { grid-row: span 2; }
+  .perk-visual img { height: 100px; }
+  .perk-title { font-size: 23px; }
+  .perk-description { grid-column: 2; border: 0; padding: 0; font-size: 18px; line-height: 1.6; }
+  .perk-visual figcaption { font-size: 11px; line-height: 1.4; }
+}
+@media (max-width: 360px) {
+  .perk-row { grid-template-columns: 78px minmax(0, 1fr); gap: 10px 12px; }
+  .perk-title { font-size: 21px; }
+}
+
+.personal-background--still > img { transform: scale(1.14); }
+.personal-background--still::after { background: linear-gradient(180deg, #f7f8fa80, #f7f8fa40 35% 80%, #f7f8fa80); }
+
+.personal-banner .personal-description p:not(.personal-focus) { margin: 0; max-width: none; font-size: 22px; line-height: 1.45; text-wrap: pretty; }
+.personal-banner .personal-description p + p:not(.personal-focus) { margin-top: 10px; }
+@media (max-width: 760px) {
+  .personal-banner { height: auto; min-height: 0; grid-template-rows: auto 420px auto; }
+  .personal-banner .personal-description p:not(.personal-focus) { font-size: 20px; line-height: 1.45; }
+  .personal-banner .personal-description p + p:not(.personal-focus) { margin-top: 14px; }
+}
+.personal-banner .personal-description p:not(.personal-focus) { text-wrap: balance; }
+@media (max-width: 760px) {
+  .personal-banner .personal-description p:not(.personal-focus) { text-wrap: pretty; }
+}
+
+/* Title on the left, supporting copy and consultation link on the right. */
+@media (min-width: 761px) {
+  .personal-banner .personal-heading {
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.35fr);
+    align-items: start;
+    gap: 12px clamp(30px, 4vw, 64px);
+    padding-block: 26px 12px;
+  }
+  .personal-title-line {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: stretch;
+    gap: 12px;
+    text-align: left;
+  }
+  .personal-banner .personal-title-line h2 { max-width: 12ch; text-align: left; }
+  .personal-banner .personal-heading .personal-description { grid-column: 2; }
+  .personal-banner .personal-heading .button { grid-column: 2; justify-self: start; }
+}
+
+/* Four compact rows: image / service, image / service. */
+.included-perks {
+  height: calc(100svh - var(--header-height, 69px) - 32px);
+  min-height: 520px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  padding-bottom: 12px;
+}
+.included-perks .collection-subheading { padding-top: 20px; margin-bottom: 18px; }
+.included-perks .collection-subheading h3 { font-size: clamp(28px, 3.5vw, 44px); }
+.perks-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+  grid-auto-flow: column;
+  column-gap: clamp(24px, 4vw, 60px);
+  border-top: 1px solid #aab4c3;
+}
+.perk-row {
+  display: grid;
+  grid-template-columns: minmax(80px, .65fr) minmax(0, 1.35fr);
+  gap: 0 clamp(16px, 2vw, 28px);
+  align-items: center;
+  min-height: 0;
+  padding-block: 10px;
+}
+.perk-visual { grid-row: auto; }
+.perk-visual img { height: clamp(65px, 10svh, 118px); }
+.perk-title { font-size: clamp(21px, 2vw, 28px); line-height: 1.35; text-wrap: balance; }
+@media (max-width: 760px) {
+  .included-perks { min-height: 540px; padding-bottom: 8px; }
+  .included-perks .collection-subheading { padding-top: 16px; margin-bottom: 14px; }
+  .included-perks .collection-subheading h3 { font-size: 28px; }
+  .included-perks .collection-subheading p { font-size: 16px; }
+  .perks-list { column-gap: 16px; }
+  .perk-row { grid-template-columns: 52px minmax(0, 1fr); gap: 0 9px; padding-block: 8px; }
+  .perk-visual img { height: 64px; }
+  .perk-visual figcaption { font-size: 10px; line-height: 1.2; }
+  .perk-title { font-family: var(--body); font-size: 17px; font-weight: 500; line-height: 1.35; }
+}
+@media (max-height: 620px) {
+  .included-perks { height: auto; min-height: 0; }
+  .perks-list { grid-template-rows: repeat(4, minmax(100px, auto)); }
+}
+
+/* Wave silhouette clips the background as well as the content. */
+.make-it-yours {
+  --wave-width: clamp(100px, 12vw, 165px);
+  --wave-height: clamp(13px, 1.7vw, 23px);
+  --wave-top: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 24' preserveAspectRatio='none'%3E%3Cpath d='M0 3 C24 3 26 19 50 19 S76 3 100 3 V24 H0 Z'/%3E%3C/svg%3E");
+  --wave-bottom: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 24' preserveAspectRatio='none'%3E%3Cpath d='M0 21 C24 21 26 5 50 5 S76 21 100 21 V0 H0 Z'/%3E%3C/svg%3E");
+  mask: linear-gradient(#000 0 0) center / 100% calc(100% - 2 * var(--wave-height) + 2px) no-repeat,
+        var(--wave-top) center top / var(--wave-width) var(--wave-height) repeat-x,
+        var(--wave-bottom) center bottom / var(--wave-width) var(--wave-height) repeat-x;
+}
+.personal-banner { mask: none; background: transparent; }
+
+/* Give the introductory copy room beneath the wave and center both groups. */
+@media (min-width: 761px) {
+  .personal-banner .personal-heading {
+    width: min(calc(100% - 2 * var(--outer)), 1180px);
+    margin-inline: auto;
+    padding: calc(var(--wave-height) + 22px) 0 20px;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.25fr);
+    column-gap: clamp(32px, 4.5vw, 72px);
+  }
+  .personal-title-line { align-items: center; text-align: center; }
+  .personal-banner .personal-title-line h2 { text-align: center; }
+  .personal-banner .personal-heading .personal-description { text-align: center; }
+  .personal-banner .personal-description p:not(.personal-focus) { text-align: center; }
+  .personal-banner .personal-heading .button { justify-self: center; }
+}
+@media (max-width: 760px) {
+  .personal-banner .personal-heading { padding: calc(var(--wave-height) + 20px) 24px 16px; gap: 12px; }
+}
+
+/* A quiet introduction beside an open, staggered lamp display. */
+.collection { padding-top: clamp(32px, 4vw, 64px); }
+.collection-showcase { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.35fr); gap: clamp(40px, 6vw, 90px); align-items: center; }
+.collection-intro { max-width: 420px; }
+.collection-intro h2 { margin-top: 18px; font-size: clamp(32px, 3.3vw, 49px); line-height: 1.18; text-wrap: balance; }
+.collection-story { margin-top: 22px; color: var(--muted); font-size: 20px; line-height: 1.65; }
+.collection-intro .collection-subheading { margin: 30px 0 0; }
+.collection-intro .collection-subheading h3 { font-size: 30px; }
+.collection-intro .collection-subheading p { max-width: 32ch; font-size: 18px; line-height: 1.6; }
+.collection-showcase .lamp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px clamp(30px, 4vw, 60px); align-items: start; padding: 12px 0 76px; }
+.lamp-grid .product-card { padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; overflow: visible; }
+.lamp-grid .product-card:nth-child(even) { position: relative; top: 64px; }
+.lamp-grid :is(.product-image, .lamp-placeholder) { height: clamp(155px, 16vw, 225px); aspect-ratio: auto; background: none; box-shadow: none; }
+.lamp-grid .product-image { object-fit: contain; border-radius: 45% 45% 10px 10px; mix-blend-mode: multiply; filter: drop-shadow(0 16px 14px #52647d20); }
+.lamp-grid .lamp-placeholder { border-radius: 0; }
+.lamp-grid .lamp-shape { width: 72%; max-height: 78%; box-shadow: 0 18px 25px -8px #52647d40, inset 0 0 16px #fff; }
+.lamp-grid .lamp-shape--rectangle { width: 56%; }
+.lamp-grid .product-copy { padding: 18px 0 0; text-align: center; }
+.lamp-grid .product-copy h4 { font-size: clamp(20px, 1.8vw, 26px); line-height: 1.35; }
+@media (max-width: 760px) {
+  .collection-showcase { grid-template-columns: 1fr; gap: 30px; }
+  .collection-intro { max-width: 540px; }
+  .collection-intro h2 { max-width: 15ch; font-size: clamp(30px, 7.7vw, 40px); }
+  .collection-story { margin-top: 16px; font-size: 20px; }
+  .collection-intro .collection-subheading { margin-top: 24px; }
+  .collection-intro .collection-subheading h3 { font-size: 27px; }
+  .collection-showcase .lamp-grid { gap: 32px 24px; padding-bottom: 50px; }
+  .lamp-grid .product-card:nth-child(even) { top: 40px; }
+  .lamp-grid :is(.product-image, .lamp-placeholder) { height: clamp(135px, 38vw, 210px); }
+  .lamp-grid .product-copy { padding-top: 16px; }
+  .lamp-grid .product-copy h4 { font-size: 20px; }
+}
+.collection-intro h2 { font-size: clamp(30px, 2.8vw, 42px); }
+.collection-intro h2 span { display: block; }
+@media (max-width: 760px) {
+  .collection-intro h2 { max-width: none; font-size: clamp(28px, 7vw, 36px); }
 }
